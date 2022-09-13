@@ -17,9 +17,9 @@ module.exports = {
         static: {
             directory: path.join(__dirname, './build'),
         },
-        // proxy: {
-        //     '/api/leaders': `http://localhost:3000/`,
-        // }
+        proxy: {
+            '/': `http://localhost:3000/`,
+        }
     },
 
     module: {
@@ -41,6 +41,6 @@ module.exports = {
         ],
     },
     plugins: [new HtmlWebpackPlugin({
-        template: '/index.html',
+        template: './client/index.html',
       })],
 };
