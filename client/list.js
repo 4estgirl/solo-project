@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Book from './book';
 import CreateBook from './create-book';
 
 const List = (props) => {
+    useEffect(() => {
+        fetch('/books')
+            .then(res => {
+                console.log('res', res.body)
+                res.json();
+            })
+            .then(({ books }) => {
+                console.log(books) // should be array containing objs
+            })
+            .catch(err => console.log('list useEffect error', err));
+    });
+
     return(
         <div>
             <button onClick={() => {
