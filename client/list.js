@@ -1,20 +1,26 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Book from './book';
 import CreateBook from './create-book';
 
 const List = (props) => {
+    const [bookList, setBookList] = useState([]);
+
     useEffect(() => {
         fetch('/books')
             .then(res => {
-                console.log('res', res.body)
                 return res.json();
             })
             .then(({ books }) => {
-                console.log(books) // should be array containing objs
+                setBookList(books);
             })
             .catch(err => console.log('list useEffect error', err));
-    });
+    }, []);
+
+    const booksArr = [];
+    for (let i = 0; i < bookList.length; i++) {
+        booksArr.push(<Book key={`Book ${i}`}author={bookList[i].author} title={bookList[i].title} description={bookList[i].description} genre={bookList[i].genre}/>)
+    }
 
     return(
         <div>
@@ -25,8 +31,7 @@ const List = (props) => {
             <div id="create-book">
                 <CreateBook/>
             </div>
-            <Book />
-            <Book />
+            {booksArr}
         </div>
     )
 }

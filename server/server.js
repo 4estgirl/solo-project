@@ -11,7 +11,6 @@ app.get('/', (req, res) => {
 });
 
 app.get('/books', controller.getBooks, (req, res) => {
-    console.log(res.locals.books); // array containing objs
     return res.status(200).json({books: res.locals.books});
 })
 
