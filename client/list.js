@@ -8,7 +8,7 @@ const List = (props) => {
         fetch('/books')
             .then(res => {
                 console.log('res', res.body)
-                res.json();
+                return res.json();
             })
             .then(({ books }) => {
                 console.log(books) // should be array containing objs
