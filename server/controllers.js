@@ -51,8 +51,28 @@ controller.saveBook = (req, res, next) => {
 }
 
 controller.updateBook = (req, res, next) => {
-    // use req.params to grab correct book id
-    text = 'UPDATE books SET _____ WHERE book_id=___'
+    const title = req.body.title;
+    const author = req.body.author;
+    const genre = req.body.genre;
+    const description = req.body.description;
+
+    text = `UPDATE books SET title = '${title}', author = '${author}', genre = '${genre}', description = '${description}' WHERE book_id = ${req.params.id.slice(3)}`
+
+    console.log('text', text);
+
+    database
+        .query(text)
+        .then(response => {
+            console.log('update response: done')
+            return next();
+        })
+        .catch(err => {
+            console.error('updateBook error');
+            return next({
+                log: 'updateBook error',
+                message: { err: 'updateBook error'},
+            });
+        });
 }
 
 controller.deleteBook = (req, res, next) => {

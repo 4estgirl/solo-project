@@ -1,4 +1,5 @@
 import React from 'react';
+import UpdateBook from './update-book';
 
 const deleteBook = (id) => {
     const url = `/books/id=${id}`;
@@ -30,6 +31,9 @@ const Book = (props) => {
             </ul>
             <button id="delete-book" onClick={() => deleteBook(props.id)}>Delete</button>
             <button id="update-book">Edit</button>
+            <div id="update-book-form">
+                <UpdateBook key={`UpdateB ${props.id}`} author={props.author} title={props.title} description={props.description} genre={props.genre} id={props.id}/>
+            </div>
         </div>
     );
 }

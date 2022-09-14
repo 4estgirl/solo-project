@@ -28,6 +28,10 @@ app.delete('/books/:id', controller.deleteBook, (req, res) => {
     res.status(200).json({});
 })
 
+app.patch('/books/:id', controller.updateBook, (req, res) => {
+    res.status(200).json({});
+})
+
 app.use((err, req, res, next) => {
     const defaultErr = {
         log: 'Express caught unknown middleware error',
