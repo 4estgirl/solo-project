@@ -24,6 +24,10 @@ app.post('/books', /*making it into saveBook
     res.status(200).json({});
 })
 
+app.delete('/books/:id', controller.deleteBook, (req, res) => {
+    res.status(200).json({});
+})
+
 app.use((err, req, res, next) => {
     const defaultErr = {
         log: 'Express caught unknown middleware error',

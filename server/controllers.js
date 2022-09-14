@@ -52,10 +52,25 @@ controller.saveBook = (req, res, next) => {
 
 controller.updateBook = (req, res, next) => {
     // use req.params to grab correct book id
+    text = 'UPDATE books SET _____ WHERE book_id=___'
 }
 
 controller.deleteBook = (req, res, next) => {
     // use req.params to grab correct book id
+    text = `DELETE FROM books WHERE book_id = ${req.params.id.slice(3)}`;
+    database
+        .query(text)
+        .then(response => {
+            console.log('delete response: done')
+            return next();
+        })
+        .catch(err => {
+            console.error('deleteBook error');
+            return next({
+                log: 'deleteBook error',
+                message: { err: 'deleteBook error'},
+            });
+        });
 }
 
 module.exports = controller;
