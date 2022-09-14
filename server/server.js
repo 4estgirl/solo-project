@@ -6,12 +6,22 @@ const controller = require('./controllers.js');
 
 const port = 3000;
 
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }));
+// app.use(cors());
+
 app.get('/', (req, res) => {
     return res.status(200).sendFile(path.resolve(__dirname, './client/index.html'))
 });
 
 app.get('/books', controller.getBooks, (req, res) => {
     return res.status(200).json({books: res.locals.books});
+})
+
+app.post('/books', /*making it into saveBook
+},*/ controller.saveBook, (req, res) => {
+    console.log('made it'); // not making it here
+    res.status(200).json({});
 })
 
 app.use((err, req, res, next) => {

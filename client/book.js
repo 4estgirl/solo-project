@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Book = (props) => {
-    console.log('author', props.author)
     return (
         <div>
             <li>Title: {props.title}</li>
