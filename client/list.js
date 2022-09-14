@@ -6,7 +6,7 @@ import CreateBook from './create-book';
 const List = (props) => {
     const [bookList, setBookList] = useState([]);
 
-    useEffect(() => {
+    const fetchGet = () => {
         fetch('/books')
             .then(res => {
                 return res.json();
@@ -15,11 +15,15 @@ const List = (props) => {
                 setBookList(books);
             })
             .catch(err => console.log('list useEffect error', err));
+    }
+
+    useEffect(() => {
+        fetchGet();
     }, []);
 
     const booksArr = [];
     for (let i = 0; i < bookList.length; i++) {
-        booksArr.push(<Book key={`Book ${i}`}author={bookList[i].author} title={bookList[i].title} description={bookList[i].description} genre={bookList[i].genre} id={bookList[i].book_id}/>)
+        booksArr.push(<Book key={`Book ${i}`}author={bookList[i].author} title={bookList[i].title} description={bookList[i].description} genre={bookList[i].genre} id={bookList[i].book_id} fetchGet={fetchGet}/>)
     }
 
     return(
@@ -29,7 +33,7 @@ const List = (props) => {
                 return createBookModule.style.display === 'none' ? createBookModule.style.display = 'block' : createBookModule.style.display = 'none';
             }}>Create Custom Book</button>
             <div className="toggle" id="create-book">
-                <CreateBook/>
+                <CreateBook fetchGet={fetchGet}/>
             </div>
             {booksArr}
         </div>

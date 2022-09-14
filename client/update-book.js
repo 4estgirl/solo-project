@@ -54,7 +54,10 @@ const UpdateBook = (props) => {
             <input name="genre" value={genre} onChange={genreOnChange}></input>
             <label htmlFor="description">New Description:</label>
             <input name="description" value={description} onChange={descriptionOnChange}></input>
-            <button className="update-button"onClick={() => updateBook(props.id)}>Update Book</button>
+            <button className="update-button"onClick={() => {
+                updateBook(props.id);
+                props.fetchGet();
+            }}>Update Book</button>
         </div>
     )
 }

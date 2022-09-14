@@ -29,13 +29,16 @@ const Book = (props) => {
                 <li><strong>Genre:</strong> {props.genre}</li>
                 <li><strong>Description:</strong> {props.description}</li>
             </ul>
-            <button id="delete-book" onClick={() => deleteBook(props.id)}>Delete</button>
+            <button id="delete-book" onClick={() => {
+                deleteBook(props.id);
+                props.fetchGet();
+                }}>Delete</button>
             <button onClick={() => {
                 const updateBookModule = document.getElementById(`update-book-form-${props.id}`);
                 return updateBookModule.style.display === 'none' ? updateBookModule.style.display = 'block' : updateBookModule.style.display = 'none';
             }}>Edit</button>
             <div className="toggle" id={`update-book-form-${props.id}`}>
-                <UpdateBook key={`UpdateB ${props.id}`} author={props.author} title={props.title} description={props.description} genre={props.genre} id={props.id}/>
+                <UpdateBook key={`UpdateB ${props.id}`} author={props.author} title={props.title} description={props.description} genre={props.genre} id={props.id} fetchGet={props.fetchGet}/>
             </div>
         </div>
     );

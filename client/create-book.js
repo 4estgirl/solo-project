@@ -54,7 +54,11 @@ const CreateBook = (props) => {
             <input name="genre" value={genre} onChange={genreOnChange}></input>
             <label htmlFor="description">Description:</label>
             <input name="description" value={description} onChange={descriptionOnChange}></input>
-            <button onClick={() => createBook()}>Add Book</button>
+            <button onClick={() => {
+                createBook();
+                props.fetchGet();
+            }
+            }>Add Book</button>
         </div>
     )
 }
