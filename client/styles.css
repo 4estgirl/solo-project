@@ -1,0 +1,21 @@
+#list-container {
+    display: flex;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.book {
+    display: flex;
+    flex-direction: column;
+    background-color: lightyellow;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+ul {
+    list-style-type: none;
+}

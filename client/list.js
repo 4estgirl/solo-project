@@ -19,11 +19,11 @@ const List = (props) => {
 
     const booksArr = [];
     for (let i = 0; i < bookList.length; i++) {
-        booksArr.push(<Book key={`Book ${i}`}author={bookList[i].author} title={bookList[i].title} description={bookList[i].description} genre={bookList[i].genre}/>)
+        booksArr.push(<Book key={`Book ${i}`}author={bookList[i].author} title={bookList[i].title} description={bookList[i].description} genre={bookList[i].genre} id={bookList[i].book_id}/>)
     }
 
     return(
-        <div>
+        <div className="list">
             <button onClick={() => {
                 const createBookModule = document.getElementById('create-book');
                 return createBookModule.style.display === 'none' ? createBookModule.style.display = 'block' : createBookModule.style.display = 'none';

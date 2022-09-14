@@ -30,6 +30,7 @@ controller.saveBook = (req, res, next) => {
 
     console.log('text', text);
     console.log(req.body);
+    // if req.body.description is longer than 100 char, reduce to under 100 char
     const values = [req.body.title, req.body.author, req.body.genre, req.body.description];
 
     console.log('values', values);
@@ -47,6 +48,14 @@ controller.saveBook = (req, res, next) => {
                 message: { err: 'saveBook error'},
             });
         });
+}
+
+controller.updateBook = (req, res, next) => {
+    // use req.params to grab correct book id
+}
+
+controller.deleteBook = (req, res, next) => {
+    // use req.params to grab correct book id
 }
 
 module.exports = controller;
