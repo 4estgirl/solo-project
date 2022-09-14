@@ -24,11 +24,11 @@ const List = (props) => {
 
     return(
         <div className="list">
-            <button onClick={() => {
+            <button id="custom-button" onClick={() => {
                 const createBookModule = document.getElementById('create-book');
                 return createBookModule.style.display === 'none' ? createBookModule.style.display = 'block' : createBookModule.style.display = 'none';
             }}>Create Custom Book</button>
-            <div id="create-book">
+            <div className="toggle" id="create-book">
                 <CreateBook/>
             </div>
             {booksArr}

@@ -45,7 +45,7 @@ const UpdateBook = (props) => {
     };
 
     return (
-        <div>
+        <div className="update-form">
             <label htmlFor="title">New Title:</label>
             <input name="title" value={title} onChange={titleOnChange}></input>
             <label htmlFor="author">New Author:</label>
@@ -54,7 +54,7 @@ const UpdateBook = (props) => {
             <input name="genre" value={genre} onChange={genreOnChange}></input>
             <label htmlFor="description">New Description:</label>
             <input name="description" value={description} onChange={descriptionOnChange}></input>
-            <button onClick={() => updateBook(props.id)}>Update Book</button>
+            <button className="update-button"onClick={() => updateBook(props.id)}>Update Book</button>
         </div>
     )
 }

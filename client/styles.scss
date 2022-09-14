@@ -1,0 +1,70 @@
+$main-text: rgb(54, 31, 11);
+
+body {
+    background-image: url("./images/book-background.jpg");
+}
+.toggle {
+    display: none;
+}
+#list-container {
+    display: flex;
+    justify-content: center;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+}
+
+.book, #create-form, .update-form {
+    display: flex;
+    flex-direction: column;
+    background-color: lightyellow;
+    margin: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    align-items: center;
+    width: 80%;
+    color: darken($main-text, 20%);
+    font-size: large;
+}
+
+.book, #create-form {
+    background-image: url("./images/paper-background.jpg");
+}
+
+.update-form {
+    background-color: transparent;
+}
+
+ul {
+    padding-right: 20px;
+    list-style-type: none;
+}
+
+.update-button {
+    width: 80%;
+    margin-top: 10px;
+}
+
+#custom-button {
+    font-size: medium;
+    width: 70%;
+    padding: 5px;
+    color: darken($main-text, 10%);
+    background-color: lighten($main-text, 50%);
+    border-color: lighten($main-text, 10%);
+    border-radius: 10px;
+}
+
+button {
+    margin: 2px;
+    border-radius: 5px;
+    width: 50%;
+    color: $main-text;
+    border-color: lighten($main-text, 15%);
+    background-color: lighten($main-text, 30%);
+    font-size: small;
+}
