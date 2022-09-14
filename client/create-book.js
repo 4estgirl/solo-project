@@ -20,7 +20,7 @@ const CreateBook = (props) => {
             title,
             author,
             genre,
-            description
+            description,
         }
         if (title === '' || author === '') {
             // throw error - REQUIRED

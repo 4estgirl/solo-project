@@ -57,6 +57,7 @@ ul {
     background-color: lighten($main-text, 50%);
     border-color: lighten($main-text, 10%);
     border-radius: 10px;
+    margin-bottom: 10px;
 }
 
 button {
@@ -67,4 +68,9 @@ button {
     border-color: lighten($main-text, 15%);
     background-color: lighten($main-text, 30%);
     font-size: small;
+}
+
+h1 {
+    color: lighten($main-text, 50%);
+    text-shadow: 0 0 3px $main-text, 0 0 25px darken($main-text, 20%);
 }

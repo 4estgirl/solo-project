@@ -3,8 +3,8 @@ const database = require('./model');
 
 const controller = {};
 
-controller.getBooks = (req, res, next) => {
-    const text = 'SELECT * FROM books';
+controller.getMyBooks = (req, res, next) => {
+    const text = 'SELECT * FROM books WHERE type=\'My List\'';
     database
         .query(text)
         .then(response => {
@@ -26,12 +26,12 @@ controller.saveBook = (req, res, next) => {
     // const { title, author, genre, description } = req.body;
     // console.log('title', title);
 
-    const text = 'INSERT INTO books(title, author, genre, description) VALUES($1, $2, $3, $4)';
+    const text = 'INSERT INTO books(title, author, genre, description, type) VALUES($1, $2, $3, $4, $5)';
 
     console.log('text', text);
     console.log(req.body);
     // if req.body.description is longer than 100 char, reduce to under 100 char
-    const values = [req.body.title, req.body.author, req.body.genre, req.body.description];
+    const values = [req.body.title, req.body.author, req.body.genre, req.body.description, 'My List'];
 
     console.log('values', values);
 

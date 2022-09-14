@@ -14,9 +14,11 @@ app.get('/', (req, res) => {
     return res.status(200).sendFile(path.resolve(__dirname, './client/index.html'))
 });
 
-app.get('/books', controller.getBooks, (req, res) => {
+app.get('/books', controller.getMyBooks, (req, res) => {
     return res.status(200).json({books: res.locals.books});
 })
+
+// set up get route for outside api
 
 app.post('/books', /*making it into saveBook
 },*/ controller.saveBook, (req, res) => {

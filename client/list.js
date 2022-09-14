@@ -7,7 +7,7 @@ const List = (props) => {
     const [bookList, setBookList] = useState([]);
 
     const fetchGet = () => {
-        fetch('/books')
+        fetch(props.get)
             .then(res => {
                 return res.json();
             })
@@ -28,6 +28,7 @@ const List = (props) => {
 
     return(
         <div className="list">
+            <h1>{props.type}</h1>
             <button id="custom-button" onClick={() => {
                 const createBookModule = document.getElementById('create-book');
                 return createBookModule.style.display === 'none' ? createBookModule.style.display = 'block' : createBookModule.style.display = 'none';
