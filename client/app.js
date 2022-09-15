@@ -93,6 +93,7 @@ const App = props => {
     return (
         <div id="list-container">
             <List type="My List" get="/books"/>
+            <List type="NYT Bestsellers" get="/best-sellers"/>
         </div>
     );
 }
