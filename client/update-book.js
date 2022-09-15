@@ -20,7 +20,7 @@ const UpdateBook = (props) => {
             title: (title !== '' ? title : props.title),
             author: (author !== '' ? author : props.author),
             genre: (genre !== '' ? genre : props.genre),
-            description: (description !== '' ? description : props.description)
+            description: (description !== '' ? description : props.description),
         }
         console.log('bookData', JSON.stringify(bookData));
 

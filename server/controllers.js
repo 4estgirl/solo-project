@@ -56,7 +56,7 @@ controller.updateBook = (req, res, next) => {
     const genre = req.body.genre;
     const description = req.body.description;
 
-    text = `UPDATE books SET title = '${title}', author = '${author}', genre = '${genre}', description = '${description}' WHERE book_id = ${req.params.id.slice(3)}`
+    text = `UPDATE books SET title = '${title}', author = '${author}', genre = '${genre}', description = '${description}', type = 'My List' WHERE book_id = ${req.params.id.slice(3)}`
 
     console.log('text', text);
 

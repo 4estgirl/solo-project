@@ -19,6 +19,34 @@ const deleteBook = (id) => {
         })
         .catch(err => console.log('delete-book delete fetch error', err))
 };
+const changeType = (id, title, author, genre, description) => {
+    const bookData = {
+        title: title,
+        author: author,
+        genre: genre,
+        description: description
+    }
+    console.log('bookData', JSON.stringify(bookData));
+
+    const url = `/books/id=${id}`
+
+    fetch(url, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'Application/JSON'
+        },
+        body: JSON.stringify(bookData)
+    })
+        .then(resp => {
+            console.log('response', resp); 
+            console.log('res body', resp.body); 
+            return resp.json()
+        })
+        .then((data) => {
+            console.log('post data', data) 
+        })
+        .catch(err => console.log('change type patch fetch error', err))
+};
 
 const Book = (props) => {
     if (props.type === 'My List') {
@@ -52,7 +80,10 @@ const Book = (props) => {
                     <li><strong>Genre:</strong> {props.genre}</li>
                     <li><strong>Description:</strong> {props.description}</li>
                 </ul>
-                <button>Add To List</button>
+                <button onClick={() => {
+                    changeType(props.id, props.title, props.author, props.genre, props.description);
+                    props.fetchGet();
+                    }}>Add To List</button>
             </div>
         );
     }
