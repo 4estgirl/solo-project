@@ -51,6 +51,7 @@ controller.saveBook = (req, res, next) => {
 }
 
 controller.updateBook = (req, res, next) => {
+    console.log('got to update book')
     const title = req.body.title;
     const author = req.body.author;
     const genre = req.body.genre;

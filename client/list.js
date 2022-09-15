@@ -27,7 +27,7 @@ const List = (props) => {
 
     useEffect(() => {
         fetchGet();
-    }, []);
+    }, [setBookList]);
 
     const booksArr = [];
     for (let i = 0; i < bookList.length; i++) {

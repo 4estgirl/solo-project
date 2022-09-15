@@ -39,7 +39,8 @@ const UpdateBook = (props) => {
                 return resp.json()
             })
             .then((data) => {
-                console.log('post data', data) 
+                console.log('post data', data);
+                props.fetchGet();
             })
             .catch(err => console.log('create-book post fetch error', err))
     };
@@ -54,8 +55,8 @@ const UpdateBook = (props) => {
             <input name="genre" value={genre} onChange={genreOnChange}></input>
             <label htmlFor="description">New Description:</label>
             <input name="description" value={description} onChange={descriptionOnChange}></input>
-            <button className="update-button"onClick={() => {
-                updateBook(props.id);
+            <button className="update-button"onClick={async () => {
+                await updateBook(props.id);
                 props.fetchGet();
             }}>Update Book</button>
         </div>

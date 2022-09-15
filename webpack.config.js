@@ -14,6 +14,8 @@ module.exports = {
     mode: process.env.NODE_ENV,
     
     devServer: {
+        hot: true,
+        liveReload: true,
         static: {
             directory: path.join(__dirname, './build'),
         },
