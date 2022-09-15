@@ -31,7 +31,7 @@ controller.saveBook = (req, res, next) => {
     console.log('text', text);
     console.log(req.body);
     // if req.body.description is longer than 100 char, reduce to under 100 char
-    const values = [req.body.title, req.body.author, req.body.genre, req.body.description, 'My List'];
+    const values = [req.body.title, req.body.author, req.body.genre, req.body.description, (req.body.type || 'My List')];
 
     console.log('values', values);
 
@@ -92,5 +92,22 @@ controller.deleteBook = (req, res, next) => {
             });
         });
 }
+
+controller.getBestSellers = (req, res, next) => {
+    const text = 'SELECT * FROM books WHERE type=\'NYT Bestsellers\'';
+    database
+        .query(text)
+        .then(response => {
+            res.locals.bestSellers = response.rows;
+            return next();
+        })
+        .catch(err => {
+            console.error('getBestSellers error');
+            return next({
+                log: 'getBestSellers error',
+                message: { err: 'getBestSellers error'},
+            });
+        });
+};
 
 module.exports = controller;

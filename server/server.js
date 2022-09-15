@@ -19,6 +19,9 @@ app.get('/books', controller.getMyBooks, (req, res) => {
 })
 
 // set up get route for outside api
+app.get('/best-sellers', controller.getBestSellers, (req, res) => {
+    return res.status(200).json({bestSellers: res.locals.bestSellers})
+})
 
 app.post('/books', /*making it into saveBook
 },*/ controller.saveBook, (req, res) => {
