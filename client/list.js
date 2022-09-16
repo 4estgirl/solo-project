@@ -39,7 +39,7 @@ const List = (props) => {
             <div className="list">
                 <h1>{props.type}</h1>
                 <button id="custom-button" onClick={() => {
-                    const createBookModule = document.getElementById('create-book');
+                    const createBookModule =  document.getElementById('create-book');
                     return createBookModule.style.display === 'none' ? createBookModule.style.display = 'block' : createBookModule.style.display = 'none';
                 }}>Create Custom Book</button>
                 <div className="toggle" id="create-book">
